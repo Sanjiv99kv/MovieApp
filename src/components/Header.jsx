@@ -3,6 +3,9 @@ import logo from '../assets/logo.png'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import userIcon from '../assets/user.png'
 import { IoSearchSharp } from "react-icons/io5";
+import {navigation} from '../constant/navigation.jsx'
+
+
 
 const Header = () => {
   const navigate = useNavigate()
@@ -10,17 +13,6 @@ const Header = () => {
   const remove_space = location?.search?.slice(3).split("%20")?.join(" ")
   const [searchInput, setSearchInput] = useState(remove_space)
 
-
-  const navigation = [
-    {
-      label: "TV Shows",
-      href: "tv"
-    },
-    {
-      label: "Movies",
-      href: "movie"
-    }
-  ]
 
   useEffect(() => {
     if (searchInput) {

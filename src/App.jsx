@@ -10,6 +10,7 @@ import Home from './pages/Home.jsx'
 import ExolorePage from './pages/ExolorePage.jsx'
 import DetailsPage from './pages/DetailPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
+import MobileNavigation from './components/MobileNavigation.jsx'
 
 function App() {
 
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <main>
+      <main className='pb-14 lg:pb-0'>
         <Header />
         <div className='min-h-[90vh]'>
           <Routes>
@@ -52,6 +53,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
+        <MobileNavigation/>
       </main>
     </BrowserRouter>
   )
