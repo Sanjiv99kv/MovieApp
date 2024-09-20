@@ -6,7 +6,8 @@ import moment from 'moment'
 import Divider from '../components/Divider'
 import useFetch from '../hook/useFetch'
 import HorizontalScrollCard from '../components/HorizontalScrollCard.jsx'
-import axios from 'axios'
+import VideoPlay from '../components/VideoPlay.jsx'
+
 
 const DetailsPage = () => {
   const params = useParams()
@@ -15,10 +16,16 @@ const DetailsPage = () => {
   const { data: castData } = useFetchDetails(`/${params?.explore}/${params?.id}/credits`)
   const { data: similarData } = useFetch(`/${params?.explore}/${params?.id}/similar`)
   const { data: recommendationData } = useFetch(`/${params?.explore}/${params?.id}/recommendations`)
-
+  const [playVideo, setPlayVideo] = useState(false)
+  const [playVideoId, setPlayVideoId] = useState("")
 
   const duration = (data?.runtime / 60)?.toFixed(1)?.split(".")
   const writer = castData?.crew?.filter(el => el?.job === "Writer")?.map(el => el?.name)?.join(", ")
+
+  const handlePlayVideo = ()=>{
+    setPlayVideoId(data)
+    setPlayVideo(true)
+  }
 
   return (
     <div>
@@ -124,6 +131,13 @@ const DetailsPage = () => {
         <HorizontalScrollCard data={recommendationData} heading={"Recommendation " + params?.explore} media_type={params?.explore} />
 
       </div>
+
+      {
+        playVideo && (
+          <VideoPlay data={playVideoId} setPlayVideo={setPlayVideo} media_type={params?.explore}/>
+        )
+      }
+
 
     </div>
   )
