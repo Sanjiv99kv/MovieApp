@@ -19,8 +19,8 @@ export const navigation = [
 
 export const mobileNavigation = [
     {
-        label: "TV Shows",
-        href: "tv",
+        label: "Home",
+        href: "home",
         icon: <MdHomeFilled/>
        
     },
