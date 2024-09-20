@@ -20,7 +20,7 @@ export const navigation = [
 export const mobileNavigation = [
     {
         label: "Home",
-        href: "home",
+        href: "/",
         icon: <MdHomeFilled/>
        
     },
